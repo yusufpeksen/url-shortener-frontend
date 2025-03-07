@@ -1,9 +1,25 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useParams,
+} from "react-router-dom";
 import App from "./App.tsx";
 import "./index.css";
 import "./i18n";
+
+function RedirectComponent() {
+  const { shortCode } = useParams();
+
+  useEffect(() => {
+    if (shortCode) {
+      window.location.href = `https://sour-caitrin-yusufpeksen-e967d44c.koyeb.app/${shortCode}`;
+    }
+  }, [shortCode]);
+
+  return null;
+}
 
 const router = createBrowserRouter([
   {
@@ -15,12 +31,6 @@ const router = createBrowserRouter([
     element: <RedirectComponent />,
   },
 ]);
-
-function RedirectComponent() {
-  const shortCode = window.location.pathname.substring(1);
-  window.location.href = `http://localhost:8080/${shortCode}`;
-  return null;
-}
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
