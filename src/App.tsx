@@ -46,8 +46,8 @@ function App() {
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [clickCount, setClickCount] = useState<number | null>(null);
 
-  const API_BASE_URL = "http://localhost:8080";
-  const FRONTEND_URL = "http://localhost:5173";
+  const API_BASE_URL = "https://sour-caitrin-yusufpeksen-e967d44c.koyeb.app";
+  const FRONTEND_URL = "https://url-shortener-frontend-phi.vercel.app";
 
   const handleLanguageMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);

@@ -1,55 +1,118 @@
-# React + TypeScript + Vite
+# URL Shortener
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern URL shortening service built with React, Spring Boot, and PostgreSQL. This application allows users to create custom short URLs and track their click statistics.
 
-Currently, two official plugins are available:
+🌐 **Live Demo:** [https://url-shortener-frontend-phi.vercel.app](https://url-shortener-frontend-phi.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![URL Shortener Demo](demo-screenshot.png)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔗 Create custom short URLs
+- 📊 Track click statistics
+- 🔍 Search existing short URLs
+- 🌐 Multi-language support (English/Turkish)
+- 📱 Responsive design
+- 🎨 Modern UI with Material Design
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+### Frontend
+
+- React 18
+- TypeScript
+- Material-UI (MUI)
+- i18next for internationalization
+- Vite as build tool
+- React Router DOM
+
+### Backend
+
+- Spring Boot
+- PostgreSQL
+- JPA/Hibernate
+- Spring Security
+
+## Deployment
+
+The application is deployed on:
+
+- Frontend: [Vercel](https://url-shortener-frontend-phi.vercel.app)
+- Backend: [Koyeb](https://sour-caitrin-yusufpeksen-e967d44c.koyeb.app)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Java 21
+- PostgreSQL
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yusufpeksen/url-shortener.git
+cd url-shortener
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install frontend dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd frontend
+npm install
 ```
-# url-shortener-frontend
+
+3. Set up environment variables
+
+```bash
+cp .env.example .env
+```
+
+4. Start the development server
+
+```bash
+npm run dev
+```
+
+## Environment Variables
+
+```env
+VITE_API_BASE_URL=https://sour-caitrin-yusufpeksen-e967d44c.koyeb.app
+```
+
+## API Endpoints
+
+| Method | Endpoint              | Description              |
+| ------ | --------------------- | ------------------------ |
+| POST   | `/shorten`            | Create a new short URL   |
+| GET    | `/{shortCode}`        | Redirect to original URL |
+| GET    | `/url/{shortCode}`    | Get URL information      |
+| GET    | `/{shortCode}/clicks` | Get click statistics     |
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Yusuf Peksen - [@yusufpeksen](https://github.com/yusufpeksen)
+
+Project Link: [https://github.com/yusufpeksen/url-shortener](https://github.com/yusufpeksen/url-shortener)
+
+## Acknowledgments
+
+- [Material-UI](https://mui.com/)
+- [React](https://reactjs.org/)
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [i18next](https://www.i18next.com/)
