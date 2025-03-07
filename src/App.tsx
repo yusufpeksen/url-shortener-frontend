@@ -47,7 +47,6 @@ function App() {
   const [clickCount, setClickCount] = useState<number | null>(null);
 
   const API_BASE_URL = "https://sour-caitrin-yusufpeksen-e967d44c.koyeb.app";
-  const FRONTEND_URL = "https://url-shortener-frontend-phi.vercel.app";
 
   const handleLanguageMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -220,16 +219,16 @@ function App() {
                   justifyContent="space-between"
                 >
                   <Link
-                    href={`${FRONTEND_URL}/${shortCode}`}
+                    href={`${API_BASE_URL}/${shortCode}`}
                     target="_blank"
                     rel="noopener"
                   >
-                    {`${FRONTEND_URL}/${shortCode}`}
+                    {`${API_BASE_URL}/${shortCode}`}
                   </Link>
                   <Button
                     startIcon={<ContentCopyIcon />}
                     onClick={() =>
-                      copyToClipboard(`${FRONTEND_URL}/${shortCode}`)
+                      copyToClipboard(`${API_BASE_URL}/${shortCode}`)
                     }
                   >
                     {t("urlShorten.copy")}
@@ -287,11 +286,11 @@ function App() {
                 <Typography variant="subtitle1" gutterBottom>
                   {t("urlSearch.shortUrl")}{" "}
                   <Link
-                    href={`${FRONTEND_URL}/${searchResult.shortCode}`}
+                    href={`${API_BASE_URL}/${searchResult.shortCode}`}
                     target="_blank"
                     rel="noopener"
                   >
-                    {`${FRONTEND_URL}/${searchResult.shortCode}`}
+                    {`${API_BASE_URL}/${searchResult.shortCode}`}
                   </Link>
                 </Typography>
                 <Typography variant="subtitle1" gutterBottom>

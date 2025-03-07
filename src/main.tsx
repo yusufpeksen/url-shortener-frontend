@@ -10,17 +10,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
   },
-  {
-    path: "/:shortCode",
-    element: <RedirectComponent />,
-  },
 ]);
-
-function RedirectComponent() {
-  const shortCode = window.location.pathname.substring(1);
-  window.location.href = `https://url-shortener-frontend-phi.vercel.app/${shortCode}`;
-  return null;
-}
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
